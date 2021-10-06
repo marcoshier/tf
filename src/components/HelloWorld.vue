@@ -36,13 +36,18 @@
           let lines = this.lines
 
           setTimeout(function() {
+            textDiv.innerHTML += "<br /> ..."
+          }, 500)
+
+          setTimeout(function() {
+            let textBefore = textDiv.innerHTML.split(' ...')[0]
             let chosenLine = lines[Math.floor(Math.random() * lines.length)].split(' - ')[1]
-            if(chosenLine) {
-              textDiv.innerHTML += "    <br /> > " + chosenLine
+            if(chosenLine && chosenLine != "") {
+              textDiv.innerHTML = textBefore + chosenLine
             } else {
-              textDiv.innerHTML += "    <br /> > Marco: I don't know"
+              textDiv.innerHTML = textBefore + "Marco: I don't know"
             }
-          }, 2000)
+          }, 2500)
           
           this.message = null
         }
